@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GradientButton from './GradientButton';
+import MobileNav from './MobileNav'; // Importujemy nowy komponent
 
 const Header = () => {
   const navLinks = [
@@ -18,24 +19,27 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-background text-foreground border-b border-gray-800">
-      <div className="font-orbitron text-2xl md:text-3xl font-semibold mb-4 md:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-600 text-glow">
-        <Link to="/">
-          Kakosheets
-        </Link>
+    <header className="flex justify-between items-center p-4 bg-background text-foreground border-b border-border shadow-sm">
+      <div className="flex items-center gap-4">
+        <MobileNav /> {/* Nawigacja mobilna */}
+        <div className="font-orbitron text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-red-600 text-glow">
+          <Link to="/">
+            Kakosheets
+          </Link>
+        </div>
       </div>
-      <nav className="flex-grow flex flex-wrap justify-center gap-2 md:gap-4 mb-4 md:mb-0">
+      <nav className="hidden md:flex flex-wrap justify-center gap-2 md:gap-4">
         {navLinks.map((link) => (
-          <Link 
-            key={link.name} 
-            to={link.path} 
-            className="text-gray-700 hover:text-red-400 transition-colors text-base border border-border rounded-md px-3 py-1"
+          <Link
+            key={link.name}
+            to={link.path}
+            className="text-muted-foreground hover:text-primary transition-colors text-base border border-border rounded-sm px-3 py-1 transition-all duration-200 hover:scale-105 hover:border-red-500"
           >
             {link.name}
           </Link>
         ))}
       </nav>
-      <div className="flex space-x-4">
+      <div className="hidden md:flex space-x-4">
         <GradientButton asChild>
           <Link to="/login">Login</Link>
         </GradientButton>
