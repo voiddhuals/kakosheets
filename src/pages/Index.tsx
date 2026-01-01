@@ -10,7 +10,7 @@ const Index = () => {
       <Header />
       <main className="flex-grow container mx-auto p-4 flex items-center justify-center">
         <h1 className="text-5xl font-bold text-center my-8 text-gray-700">
-          Witaj w ACBuySheets!
+          Witaj w Kakosheets!
         </h1>
       </main>
       <MadeWithDyad />

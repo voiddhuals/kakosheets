@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center p-4 border-b border-gray-200 bg-white text-sm">
-      <div className="font-bold text-lg">ACBuySheets</div>
+      <div className="font-bold text-lg">Kakosheets</div>
       <nav className="flex space-x-4">
         {navLinks.map((link) => (
           <Link key={link.name} to={link.path} className="hover:underline">
