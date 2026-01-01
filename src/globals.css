@@ -99,7 +99,7 @@
 }
 
 .text-glow {
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), /* Strong red glow */
-               0 0 15px rgba(255, 69, 0, 0.6), /* Orange-red glow */
-               0 0 20px rgba(255, 0, 0, 0.4); /* Lighter red glow */
+  text-shadow: 0 0 4px rgba(255, 0, 0, 0.6), /* Softer red glow */
+               0 0 8px rgba(255, 69, 0, 0.4), /* Softer orange-red glow */
+               0 0 12px rgba(255, 0, 0, 0.2); /* Even lighter red glow */
 }
