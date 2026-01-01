@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Shoes", path: "/shoes" },
-    { name: "Hoodies/Sweaters", path: "/hoodies-sweaters" },
-    { name: "T-Shirts", path: "/t-shirts" },
-    { name: "Jackets", path: "/jackets" },
-    { name: "Pants/Shorts", path: "/pants-shorts" },
-    { name: "Headwear", path: "/headwear" },
-    { name: "Accessories", path: "/accessories" },
-    { name: "Other Stuff", path: "/other-stuff" },
+    { name: "Shoes", path: "/category/shoes" },
+    { name: "Hoodies/Sweaters", path: "/category/hoodies-sweaters" },
+    { name: "T-Shirts", path: "/category/t-shirts" },
+    { name: "Jackets", path: "/category/jackets" },
+    { name: "Pants/Shorts", path: "/category/pants-shorts" },
+    { name: "Headwear", path: "/category/headwear" },
+    { name: "Accessories", path: "/category/accessories" },
+    { name: "Other Stuff", path: "/category/other-stuff" },
   ];
 
   return (
