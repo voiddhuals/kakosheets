@@ -6,26 +6,30 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Shoes", path: "/category/shoes" },
-  { name: "Hoodies/Sweaters", path: "/category/hoodies-sweaters" },
-  { name: "T-Shirts", path: "/category/t-shirts" },
-  { name: "Jackets", path: "/category/jackets" },
-  { name: "Pants/Shorts", path: "/category/pants-shorts" },
-  { name: "Headwear", path: "/category/headwear" },
-  { name: "Accessories", path: "/category/accessories" },
-  { name: "Other Stuff", path: "/category/other-stuff" },
-];
+import LanguageToggle from './LanguageToggle'; // Import LanguageToggle
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 const MobileNav = () => {
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { name: t("home"), path: "/" },
+    { name: t("shoes"), path: "/category/shoes" },
+    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters" },
+    { name: t("tShirts"), path: "/category/t-shirts" },
+    { name: t("jackets"), path: "/category/jackets" },
+    { name: t("pantsShorts"), path: "/category/pants-shorts" },
+    { name: t("headwear"), path: "/category/headwear" },
+    { name: t("accessories"), path: "/category/accessories" },
+    { name: t("otherStuff"), path: "/category/other-stuff" },
+  ];
+
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden text-foreground">
           <Menu className="h-6 w-6" />
-          <span className="sr-only">Otwórz menu nawigacyjne</span>
+          <span className="sr-only">{t("openNavigationMenu")}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-[250px] sm:w-[300px] bg-card text-card-foreground border-r border-border p-4">
@@ -50,8 +54,11 @@ const MobileNav = () => {
             to="/login"
             className="block px-3 py-2 text-lg font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors duration-200"
           >
-            Login
+            {t("login")}
           </Link>
+          <div className="px-3 py-2"> {/* Dodano LanguageToggle do nawigacji mobilnej */}
+            <LanguageToggle />
+          </div>
         </nav>
       </SheetContent>
     </Sheet>

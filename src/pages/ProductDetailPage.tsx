@@ -7,10 +7,12 @@ import { MadeWithDyad } from "@/components/made-with-dyad";
 import { useProductContext } from "@/context/ProductContext";
 import { Button } from '@/components/ui/button';
 import GradientButton from '@/components/GradientButton';
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 const ProductDetailPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const { products } = useProductContext();
+  const { t } = useTranslation(); // Użycie hooka tłumaczeń
 
   const product = products.find(p => p.id === Number(productId));
 
@@ -20,12 +22,12 @@ const ProductDetailPage = () => {
         <Header />
         <main className="flex-grow container mx-auto p-4 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4 text-foreground">Produkt nie znaleziony</h1>
+            <h1 className="text-4xl font-bold mb-4 text-foreground">{t("productNotFound")}</h1> {/* Użycie tłumaczenia */}
             <p className="text-xl text-muted-foreground mb-4">
-              Przepraszamy, ale produkt o podanym ID nie istnieje.
+              {t("productNotFoundMessage")} {/* Użycie tłumaczenia */}
             </p>
             <Link to="/" className="text-primary hover:text-primary/90 underline">
-              Wróć do strony głównej
+              {t("returnToHomepage")} {/* Użycie tłumaczenia */}
             </Link>
           </div>
         </main>
@@ -49,17 +51,17 @@ const ProductDetailPage = () => {
           <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl font-bold text-foreground mb-4">{product.name}</h1>
             <p className="text-3xl font-semibold text-primary mb-6">{product.price}</p>
-            <p className="text-lg text-muted-foreground mb-4">Kategoria: <span className="font-medium text-foreground">{product.category}</span></p>
+            <p className="text-lg text-muted-foreground mb-4">{t("category")}: <span className="font-medium text-foreground">{product.category}</span></p> {/* Użycie tłumaczenia */}
             {product.link && (
               <div className="mt-6">
                 <a href={product.link} target="_blank" rel="noopener noreferrer">
-                  <GradientButton className="w-full md:w-auto">Przejdź do produktu</GradientButton>
+                  <GradientButton className="w-full md:w-auto">{t("goToProduct")}</GradientButton> {/* Użycie tłumaczenia */}
                 </a>
               </div>
             )}
             <div className="mt-8">
               <Link to={`/category/${product.category.toLowerCase().replace(/\s|\//g, '-')}`}>
-                <Button variant="outline" className="bg-transparent border-border text-foreground hover:bg-accent">Wróć do kategorii</Button>
+                <Button variant="outline" className="bg-transparent border-border text-foreground hover:bg-accent">{t("returnToCategory")}</Button> {/* Użycie tłumaczenia */}
               </Link>
             </div>
           </div>

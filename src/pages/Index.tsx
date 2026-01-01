@@ -5,8 +5,11 @@ import Header from "@/components/Header";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import GradientButton from '@/components/GradientButton';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 const Index = () => {
+  const { t } = useTranslation(); // Użycie hooka tłumaczeń
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
@@ -16,7 +19,7 @@ const Index = () => {
         </h1>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/category/shoes">
-            <GradientButton>Przeglądaj Produkty</GradientButton>
+            <GradientButton>{t("browseProducts")}</GradientButton> {/* Użycie tłumaczenia */}
           </Link>
         </div>
       </main>

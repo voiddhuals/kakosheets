@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ProductProvider } from "./context/ProductContext";
+import { LanguageProvider } from "./context/LanguageContext"; // Import LanguageProvider
 import ProductDetailPage from "./pages/ProductDetailPage"; // Import ProductDetailPage
 
 const queryClient = new QueryClient();
@@ -20,22 +21,24 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ProductProvider>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/category/:categorySlug" element={<CategoryPage />} />
-            <Route path="/product/:productId" element={<ProductDetailPage />} /> {/* Nowa trasa dla szczegółów produktu */}
-            <Route path="/signup" element={<NotFound />} />
-            <Route path="/report-dead-link" element={<NotFound />} />
-            <Route path="/login" element={<LoginPage />} />
-            
-            <Route element={<ProtectedRoute />}>
-              <Route path="/admin" element={<AdminPage />} />
-            </Route>
+        <LanguageProvider> {/* Wrap with LanguageProvider */}
+          <ProductProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/category/:categorySlug" element={<CategoryPage />} />
+              <Route path="/product/:productId" element={<ProductDetailPage />} />
+              <Route path="/signup" element={<NotFound />} />
+              <Route path="/report-dead-link" element={<NotFound />} />
+              <Route path="/login" element={<LoginPage />} />
+              
+              <Route element={<ProtectedRoute />}>
+                <Route path="/admin" element={<AdminPage />} />
+              </Route>
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ProductProvider>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ProductProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

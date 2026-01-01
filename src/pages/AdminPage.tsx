@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import { MadeWithDyad } from '@/components/made-with-dyad';
-import { Link } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 const AdminPage = () => {
   const { addProduct, logout } = useProductContext();
@@ -18,10 +18,11 @@ const AdminPage = () => {
   const [image, setImage] = useState('/placeholder.svg');
   const [category, setCategory] = useState('');
   const [productLink, setProductLink] = useState('');
+  const { t } = useTranslation(); // Użycie hooka tłumaczeń
 
   const categories = [
-    "Shoes", "Hoodies/Sweaters", "T-Shirts", "Jackets", "Pants/Shorts",
-    "Headwear", "Accessories", "Other Stuff"
+    t("shoes"), t("hoodiesSweaters"), t("tShirts"), t("jackets"), t("pantsShorts"),
+    t("headwear"), t("accessories"), t("otherStuff")
   ];
 
   const formatPriceForInput = (input: string): string => {
@@ -58,7 +59,7 @@ const AdminPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !price || !category) {
-      alert("Wszystkie pola są wymagane!");
+      alert(t("allFieldsRequired")); // Użycie tłumaczenia
       return;
     }
     addProduct({ name, price, image, category, link: productLink });
@@ -74,18 +75,18 @@ const AdminPage = () => {
       <Header />
       <main className="flex-grow container mx-auto p-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">Panel Administracyjny</h1>
-          <Button onClick={logout} variant="destructive">Wyloguj</Button>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">{t("adminPanel")}</h1> {/* Użycie tłumaczenia */}
+          <Button onClick={logout} variant="destructive">{t("logout")}</Button> {/* Użycie tłumaczenia */}
         </div>
 
         <Card className="w-full max-w-2xl mx-auto bg-card text-card-foreground border border-border shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-center text-foreground">Dodaj Nowy Produkt</CardTitle>
+            <CardTitle className="text-2xl text-center text-foreground">{t("addNewProduct")}</CardTitle> {/* Użycie tłumaczenia */}
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="name" className="text-muted-foreground">Nazwa Produktu</Label>
+                <Label htmlFor="name" className="text-muted-foreground">{t("productName")}</Label> {/* Użycie tłumaczenia */}
                 <Input
                   id="name"
                   type="text"
@@ -96,7 +97,7 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="price" className="text-muted-foreground">Cena</Label>
+                <Label htmlFor="price" className="text-muted-foreground">{t("price")}</Label> {/* Użycie tłumaczenia */}
                 <Input
                   id="price"
                   type="text"
@@ -108,7 +109,7 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="image" className="text-muted-foreground">URL Obrazka</Label>
+                <Label htmlFor="image" className="text-muted-foreground">{t("imageUrl")}</Label> {/* Użycie tłumaczenia */}
                 <Input
                   id="image"
                   type="text"
@@ -119,7 +120,7 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="productLink" className="text-muted-foreground">Link do Produktu (opcjonalnie)</Label>
+                <Label htmlFor="productLink" className="text-muted-foreground">{t("productLinkOptional")}</Label> {/* Użycie tłumaczenia */}
                 <Input
                   id="productLink"
                   type="url"
@@ -130,10 +131,10 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="category" className="text-muted-foreground">Kategoria</Label>
+                <Label htmlFor="category" className="text-muted-foreground">{t("category")}</Label> {/* Użycie tłumaczenia */}
                 <Select onValueChange={setCategory} value={category} required>
                   <SelectTrigger id="category" className="bg-input text-foreground border-border">
-                    <SelectValue placeholder="Wybierz kategorię" />
+                    <SelectValue placeholder={t("selectCategory")} /> {/* Użycie tłumaczenia */}
                   </SelectTrigger>
                   <SelectContent className="bg-card text-card-foreground border-border">
                     {categories.map((cat) => (
@@ -142,12 +143,12 @@ const AdminPage = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Dodaj Produkt</Button>
+              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">{t("addProduct")}</Button> {/* Użycie tłumaczenia */}
             </form>
           </CardContent>
         </Card>
         <p className="text-center text-sm text-muted-foreground mt-8">
-          Pamiętaj: Dodane produkty nie będą trwałe i znikną po odświeżeniu strony, ponieważ aplikacja działa tylko po stronie klienta.
+          {t("productsNotPersistent")} {/* Użycie tłumaczenia */}
         </p>
       </main>
       <MadeWithDyad />

@@ -4,18 +4,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import GradientButton from './GradientButton';
 import MobileNav from './MobileNav';
+import LanguageToggle from './LanguageToggle'; // Import LanguageToggle
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Shoes", path: "/category/shoes" },
-    { name: "Hoodies/Sweaters", path: "/category/hoodies-sweaters" },
-    { name: "T-Shirts", path: "/category/t-shirts" },
-    { name: "Jackets", path: "/category/jackets" },
-    { name: "Pants/Shorts", path: "/category/pants-shorts" },
-    { name: "Headwear", path: "/category/headwear" },
-    { name: "Accessories", path: "/category/accessories" },
-    { name: "Other Stuff", path: "/category/other-stuff" },
+    { name: t("home"), path: "/" },
+    { name: t("shoes"), path: "/category/shoes" },
+    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters" },
+    { name: t("tShirts"), path: "/category/t-shirts" },
+    { name: t("jackets"), path: "/category/jackets" },
+    { name: t("pantsShorts"), path: "/category/pants-shorts" },
+    { name: t("headwear"), path: "/category/headwear" },
+    { name: t("accessories"), path: "/category/accessories" },
+    { name: t("otherStuff"), path: "/category/other-stuff" },
   ];
 
   return (
@@ -39,9 +43,10 @@ const Header = () => {
           </Link>
         ))}
       </nav>
-      <div className="hidden md:flex space-x-4">
+      <div className="hidden md:flex space-x-4 items-center"> {/* Dodano items-center */}
+        <LanguageToggle /> {/* Dodano przycisk zmiany języka */}
         <GradientButton asChild>
-          <Link to="/login">Login</Link>
+          <Link to="/login">{t("login")}</Link>
         </GradientButton>
       </div>
     </header>

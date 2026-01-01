@@ -6,25 +6,43 @@ import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { useProductContext } from "@/context/ProductContext";
-
-const categoryMap: { [key: string]: string } = {
-  "shoes": "Shoes",
-  "hoodies-sweaters": "Hoodies/Sweaters",
-  "t-shirts": "T-Shirts",
-  "jackets": "Jackets",
-  "pants-shorts": "Pants/Shorts",
-  "headwear": "Headwear",
-  "accessories": "Accessories",
-  "other-stuff": "Other Stuff",
-};
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
-  const categoryName = categorySlug ? categoryMap[categorySlug] : undefined;
   const { products } = useProductContext();
+  const { t, currentLanguage } = useTranslation(); // Użycie hooka tłumaczeń
 
-  const filteredProducts = categoryName
-    ? products.filter((product) => product.category === categoryName)
+  const categoryMap: { [key: string]: string } = {
+    "shoes": t("shoes"),
+    "hoodies-sweaters": t("hoodiesSweaters"),
+    "t-shirts": t("tShirts"),
+    "jackets": t("jackets"),
+    "pants-shorts": t("pantsShorts"),
+    "headwear": t("headwear"),
+    "accessories": t("accessories"),
+    "other-stuff": t("otherStuff"),
+  };
+
+  // Mapowanie slugów na nazwy kategorii w bieżącym języku
+  const getCategoryNameFromSlug = (slug: string) => {
+    switch (slug) {
+      case "shoes": return t("shoes");
+      case "hoodies-sweaters": return t("hoodiesSweaters");
+      case "t-shirts": return t("tShirts");
+      case "jackets": return t("jackets");
+      case "pants-shorts": return t("pantsShorts");
+      case "headwear": return t("headwear");
+      case "accessories": return t("accessories");
+      case "other-stuff": return t("otherStuff");
+      default: return t("categoryNotFound");
+    }
+  };
+
+  const categoryDisplayName = categorySlug ? getCategoryNameFromSlug(categorySlug) : t("categoryNotFound");
+
+  const filteredProducts = categorySlug
+    ? products.filter((product) => product.category.toLowerCase().replace(/\s|\//g, '-') === categorySlug)
     : [];
 
   return (
@@ -32,7 +50,7 @@ const CategoryPage = () => {
       <Header />
       <main className="flex-grow container mx-auto p-4">
         <h1 className="text-4xl md:text-5xl font-bold text-center my-8 text-foreground">
-          {categoryName || "Kategoria nie znaleziona"}
+          {categoryDisplayName}
         </h1>
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -47,7 +65,7 @@ const CategoryPage = () => {
             ))}
           </div>
         ) : (
-          <p className="text-center text-muted-foreground">Brak produktów w tej kategorii.</p>
+          <p className="text-center text-muted-foreground">{t("noProductsInCategory")}</p>
         )}
       </main>
       <MadeWithDyad />

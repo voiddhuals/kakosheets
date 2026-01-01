@@ -4,6 +4,7 @@ import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { Product, allProducts as initialProducts } from "@/data/products";
 import { toast } from "sonner";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
 
 interface ProductContextType {
   products: Product[];
@@ -19,28 +20,29 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const navigate = useNavigate();
+  const { t } = useTranslation(); // Użycie hooka tłumaczeń
 
   const addProduct = (newProduct: Omit<Product, 'id'>) => {
     const productWithId = { ...newProduct, id: products.length + 1 };
     setProducts((prevProducts) => [...prevProducts, productWithId]);
-    toast.success("Produkt został pomyślnie dodany!");
+    toast.success(t("productAddedSuccessfully")); // Użycie tłumaczenia
   };
 
   const login = (username: string, password: string) => {
     // Simple hardcoded login for demonstration purposes
     if (username === "admin" && password === "password") {
       setIsAuthenticated(true);
-      toast.success("Zalogowano pomyślnie!");
+      toast.success(t("loggedInSuccessfully")); // Użycie tłumaczenia
       navigate('/admin');
       return true;
     }
-    toast.error("Nieprawidłowa nazwa użytkownika lub hasło.");
+    toast.error(t("invalidCredentials")); // Użycie tłumaczenia
     return false;
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    toast.info("Wylogowano.");
+    toast.info(t("loggedOut")); // Użycie tłumaczenia
     navigate('/login');
   };
 
