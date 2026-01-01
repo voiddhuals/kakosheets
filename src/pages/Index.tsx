@@ -18,9 +18,10 @@ const Index = () => {
           Twoje źródło najlepszych produktów streetwear. Odkryj unikalne kolekcje i bądź na bieżąco z najnowszymi trendami.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <GradientButton asChild>
-            <Link to="/category/shoes">Przeglądaj Produkty</Link>
-          </GradientButton>
+          {/* Zmieniono użycie: GradientButton jest owinięty przez Link */}
+          <Link to="/category/shoes">
+            <GradientButton>Przeglądaj Produkty</GradientButton>
+          </Link>
           <Link to="/admin">
             <GradientButton variant="outline" className="bg-transparent border border-cyan-400 text-cyan-400 hover:bg-cyan-900">
               Panel Admina
