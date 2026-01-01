@@ -12,6 +12,7 @@ export const translations = {
     login: "Zaloguj",
     logout: "Wyloguj",
     browseProducts: "Przeglądaj Produkty",
+    kakobuyCoupons: "410$ kakobuy coupons", // Nowe tłumaczenie
     categoryNotFound: "Kategoria nie znaleziona",
     noProductsInCategory: "Brak produktów w tej kategorii.",
     productNotFound: "Produkt nie znaleziony",
@@ -23,7 +24,7 @@ export const translations = {
     loginToAdminPanel: "Zaloguj się do Panelu Admina",
     username: "Nazwa użytkownika",
     password: "Hasło",
-    useAdminPassword: "Użyj: vo1dd / vo1dd2026", // Zaktualizowano podpowiedź
+    useAdminPassword: "Użyj: vo1dd / vo1dd2026",
     adminPanel: "Panel Administracyjny",
     addNewProduct: "Dodaj Nowy Produkt",
     productName: "Nazwa Produktu",
@@ -54,6 +55,7 @@ export const translations = {
     login: "Login",
     logout: "Logout",
     browseProducts: "Browse Products",
+    kakobuyCoupons: "410$ kakobuy coupons", // Nowe tłumaczenie
     categoryNotFound: "Category not found",
     noProductsInCategory: "No products in this category.",
     productNotFound: "Product not found",
@@ -65,7 +67,7 @@ export const translations = {
     loginToAdminPanel: "Login to Admin Panel",
     username: "Username",
     password: "Password",
-    useAdminPassword: "Use: vo1dd / vo1dd2026", // Zaktualizowano podpowiedź
+    useAdminPassword: "Use: vo1dd / vo1dd2026",
     adminPanel: "Admin Panel",
     addNewProduct: "Add New Product",
     productName: "Product Name",

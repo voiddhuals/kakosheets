@@ -21,6 +21,9 @@ const Index = () => {
           <Link to="/category/shoes">
             <GradientButton>{t("browseProducts")}</GradientButton> {/* Użycie tłumaczenia */}
           </Link>
+          <a href="https://ikako.vip/r/wojdd" target="_blank" rel="noopener noreferrer">
+            <GradientButton>{t("kakobuyCoupons")}</GradientButton> {/* Nowy przycisk z tłumaczeniem */}
+          </a>
         </div>
       </main>
       <MadeWithDyad />
