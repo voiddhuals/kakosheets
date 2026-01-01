@@ -39,6 +39,7 @@ const CategoryPage = () => {
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id} // Przekazanie ID
                 image={product.image}
                 name={product.name}
                 price={product.price}

@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ProductProvider } from "./context/ProductContext";
+import ProductDetailPage from "./pages/ProductDetailPage"; // Import ProductDetailPage
 
 const queryClient = new QueryClient();
 
@@ -22,8 +23,8 @@ const App = () => (
         <ProductProvider>
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* Dynamiczna trasa dla wszystkich kategorii */}
             <Route path="/category/:categorySlug" element={<CategoryPage />} />
+            <Route path="/product/:productId" element={<ProductDetailPage />} /> {/* Nowa trasa dla szczegółów produktu */}
             <Route path="/signup" element={<NotFound />} />
             <Route path="/report-dead-link" element={<NotFound />} />
             <Route path="/login" element={<LoginPage />} />

@@ -3,6 +3,7 @@ import { ProductCardProps } from "@/components/ProductCard";
 export interface Product extends ProductCardProps {
   id: number;
   category: string;
+  link?: string; // Dodano opcjonalne pole link
 }
 
 export const allProducts: Product[] = [
@@ -12,6 +13,7 @@ export const allProducts: Product[] = [
     price: "$27.42",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/lacoste-sweater-1",
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ export const allProducts: Product[] = [
     price: "$34.31",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/lacoste-sweater-2",
   },
   {
     id: 3,
@@ -26,6 +29,7 @@ export const allProducts: Product[] = [
     price: "$30.53",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/lacoste-sweater-3",
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ export const allProducts: Product[] = [
     price: "$84.00",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/lacoste-sweater-4",
   },
   {
     id: 5,
@@ -40,6 +45,7 @@ export const allProducts: Product[] = [
     price: "$49.28",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-hoodie-grey",
   },
   {
     id: 6,
@@ -47,6 +53,7 @@ export const allProducts: Product[] = [
     price: "$49.28",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-hoodie-black",
   },
   {
     id: 7,
@@ -54,6 +61,7 @@ export const allProducts: Product[] = [
     price: "$12.02",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-arcteryx-1",
   },
   {
     id: 8,
@@ -61,6 +69,7 @@ export const allProducts: Product[] = [
     price: "$12.02",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-arcteryx-2",
   },
   {
     id: 9,
@@ -68,6 +77,7 @@ export const allProducts: Product[] = [
     price: "$12.02",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-arcteryx-3",
   },
   {
     id: 10,
@@ -75,6 +85,7 @@ export const allProducts: Product[] = [
     price: "$12.02",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-arcteryx-4",
   },
   {
     id: 11,
@@ -82,6 +93,7 @@ export const allProducts: Product[] = [
     price: "$12.02",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-arcteryx-5",
   },
   {
     id: 12,
@@ -89,6 +101,7 @@ export const allProducts: Product[] = [
     price: "$12.02",
     image: "/placeholder.svg",
     category: "Hoodies/Sweaters",
+    link: "https://example.com/palace-arcteryx-6",
   },
   {
     id: 13,
@@ -96,6 +109,7 @@ export const allProducts: Product[] = [
     price: "$90.00",
     image: "/placeholder.svg",
     category: "Shoes",
+    link: "https://example.com/nike-air-force-1",
   },
   {
     id: 14,
@@ -103,6 +117,7 @@ export const allProducts: Product[] = [
     price: "$140.00",
     image: "/placeholder.svg",
     category: "Shoes",
+    link: "https://example.com/adidas-ultraboost",
   },
   {
     id: 15,
@@ -110,6 +125,7 @@ export const allProducts: Product[] = [
     price: "$15.00",
     image: "/placeholder.svg",
     category: "T-Shirts",
+    link: "https://example.com/classic-tshirt",
   },
   {
     id: 16,
@@ -117,6 +133,7 @@ export const allProducts: Product[] = [
     price: "$25.00",
     image: "/placeholder.svg",
     category: "T-Shirts",
+    link: "https://example.com/graphic-tee",
   },
   {
     id: 17,
@@ -124,6 +141,7 @@ export const allProducts: Product[] = [
     price: "$75.00",
     image: "/placeholder.svg",
     category: "Jackets",
+    link: "https://example.com/denim-jacket",
   },
   {
     id: 18,
@@ -131,6 +149,7 @@ export const allProducts: Product[] = [
     price: "$120.00",
     image: "/placeholder.svg",
     category: "Jackets",
+    link: "https://example.com/puffer-jacket",
   },
   {
     id: 19,
@@ -138,6 +157,7 @@ export const allProducts: Product[] = [
     price: "$50.00",
     image: "/placeholder.svg",
     category: "Pants/Shorts",
+    link: "https://example.com/cargo-pants",
   },
   {
     id: 20,
@@ -145,6 +165,7 @@ export const allProducts: Product[] = [
     price: "$30.00",
     image: "/placeholder.svg",
     category: "Pants/Shorts",
+    link: "https://example.com/athletic-shorts",
   },
   {
     id: 21,
@@ -152,6 +173,7 @@ export const allProducts: Product[] = [
     price: "$20.00",
     image: "/placeholder.svg",
     category: "Headwear",
+    link: "https://example.com/baseball-cap",
   },
   {
     id: 22,
@@ -159,6 +181,7 @@ export const allProducts: Product[] = [
     price: "$18.00",
     image: "/placeholder.svg",
     category: "Headwear",
+    link: "https://example.com/beanie-hat",
   },
   {
     id: 23,
@@ -166,6 +189,7 @@ export const allProducts: Product[] = [
     price: "$40.00",
     image: "/placeholder.svg",
     category: "Accessories",
+    link: "https://example.com/leather-wallet",
   },
   {
     id: 24,
@@ -173,6 +197,7 @@ export const allProducts: Product[] = [
     price: "$35.00",
     image: "/placeholder.svg",
     category: "Accessories",
+    link: "https://example.com/sunglasses",
   },
   {
     id: 25,
@@ -180,5 +205,6 @@ export const allProducts: Product[] = [
     price: "$99.99",
     image: "/placeholder.svg",
     category: "Other Stuff",
+    link: "https://example.com/mystery-box",
   },
 ];

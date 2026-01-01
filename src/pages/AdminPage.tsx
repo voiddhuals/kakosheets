@@ -17,6 +17,7 @@ const AdminPage = () => {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('/placeholder.svg'); // Default placeholder image
   const [category, setCategory] = useState('');
+  const [productLink, setProductLink] = useState(''); // Nowe pole dla linku
 
   const categories = [
     "Shoes", "Hoodies/Sweaters", "T-Shirts", "Jackets", "Pants/Shorts",
@@ -29,11 +30,12 @@ const AdminPage = () => {
       alert("Wszystkie pola są wymagane!");
       return;
     }
-    addProduct({ name, price, image, category });
+    addProduct({ name, price, image, category, link: productLink }); // Przekazanie linku
     setName('');
     setPrice('');
     setImage('/placeholder.svg');
     setCategory('');
+    setProductLink(''); // Wyczyszczenie pola linku
   };
 
   return (
@@ -79,6 +81,16 @@ const AdminPage = () => {
                   value={image}
                   onChange={(e) => setImage(e.target.value)}
                   placeholder="Np. /placeholder.svg"
+                />
+              </div>
+              <div>
+                <Label htmlFor="productLink">Link do Produktu (opcjonalnie)</Label>
+                <Input
+                  id="productLink"
+                  type="url"
+                  value={productLink}
+                  onChange={(e) => setProductLink(e.target.value)}
+                  placeholder="Np. https://example.com/product-link"
                 />
               </div>
               <div>
