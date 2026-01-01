@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Importowanie czcionki Orbitron */
+@import '@fontsource/orbitron';
+
 @layer base {
   :root {
     --background: 222.2 84% 4.9%; /* Very dark blue/black */

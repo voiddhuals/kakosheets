@@ -11,7 +11,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow container mx-auto p-4 flex flex-col items-center justify-center text-center">
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-600 text-glow">
+        <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-600 text-glow font-orbitron">
           KAKOSHEETS
         </h1>
         {/* Usunięto paragraf z opisem */}

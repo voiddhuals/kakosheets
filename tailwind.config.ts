@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         mono: ['"Space Mono"', 'monospace'], // Dodanie czcionki Space Mono
+        orbitron: ['"Orbitron"', 'sans-serif'], // Dodanie czcionki Orbitron
       },
       colors: {
         border: "hsl(var(--border))",
