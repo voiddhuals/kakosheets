@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import { MadeWithDyad } from "@/components/made-with-dyad";
-import { allProducts } from "@/data/products";
+import { useProductContext } from "@/context/ProductContext"; // Import useProductContext
 
 const categoryMap: { [key: string]: string } = {
   "shoes": "Shoes",
@@ -21,9 +21,10 @@ const categoryMap: { [key: string]: string } = {
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const categoryName = categorySlug ? categoryMap[categorySlug] : undefined;
+  const { products } = useProductContext(); // Use products from context
 
   const filteredProducts = categoryName
-    ? allProducts.filter((product) => product.category === categoryName)
+    ? products.filter((product) => product.category === categoryName)
     : [];
 
   return (

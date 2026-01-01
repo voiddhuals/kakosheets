@@ -1,0 +1,60 @@
+"use client";
+
+import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { Product, allProducts as initialProducts } from "@/data/products";
+import { toast } from "sonner";
+import { useNavigate } from 'react-router-dom';
+
+interface ProductContextType {
+  products: Product[];
+  addProduct: (product: Omit<Product, 'id'>) => void;
+  isAuthenticated: boolean;
+  login: (username: string, password: string) => boolean;
+  logout: () => void;
+}
+
+const ProductContext = createContext<ProductContextType | undefined>(undefined);
+
+export const ProductProvider = ({ children }: { children: ReactNode }) => {
+  const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const addProduct = (newProduct: Omit<Product, 'id'>) => {
+    const productWithId = { ...newProduct, id: products.length + 1 };
+    setProducts((prevProducts) => [...prevProducts, productWithId]);
+    toast.success("Produkt został pomyślnie dodany!");
+  };
+
+  const login = (username: string, password: string) => {
+    // Simple hardcoded login for demonstration purposes
+    if (username === "admin" && password === "password") {
+      setIsAuthenticated(true);
+      toast.success("Zalogowano pomyślnie!");
+      navigate('/admin');
+      return true;
+    }
+    toast.error("Nieprawidłowa nazwa użytkownika lub hasło.");
+    return false;
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    toast.info("Wylogowano.");
+    navigate('/login');
+  };
+
+  return (
+    <ProductContext.Provider value={{ products, addProduct, isAuthenticated, login, logout }}>
+      {children}
+    </ProductContext.Provider>
+  );
+};
+
+export const useProductContext = () => {
+  const context = useContext(ProductContext);
+  if (context === undefined) {
+    throw new Error('useProductContext must be used within a ProductProvider');
+  }
+  return context;
+};
