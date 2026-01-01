@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { useProductContext } from "@/context/ProductContext";
 import { Button } from '@/components/ui/button';
-import GradientButton from '@/components/GradientButton'; // Import GradientButton
+import GradientButton from '@/components/GradientButton';
 
 const ProductDetailPage = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -24,7 +24,7 @@ const ProductDetailPage = () => {
             <p className="text-xl text-muted-foreground mb-4">
               Przepraszamy, ale produkt o podanym ID nie istnieje.
             </p>
-            <Link to="/" className="text-cyan-400 hover:text-cyan-600 underline">
+            <Link to="/" className="text-red-500 hover:text-red-700 underline">
               Wróć do strony głównej
             </Link>
           </div>
@@ -38,7 +38,7 @@ const ProductDetailPage = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow container mx-auto p-8">
-        <div className="bg-card text-card-foreground shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-8 border border-gray-800">
+        <div className="bg-card text-card-foreground shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-8 border-border">
           <div className="md:w-1/2 flex justify-center">
             <img
               src={product.image}
@@ -48,7 +48,7 @@ const ProductDetailPage = () => {
           </div>
           <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl font-bold text-primary-foreground mb-4">{product.name}</h1>
-            <p className="text-3xl font-semibold text-cyan-400 mb-6">{product.price}</p>
+            <p className="text-3xl font-semibold text-red-500 mb-6">{product.price}</p>
             <p className="text-lg text-muted-foreground mb-4">Kategoria: <span className="font-medium text-primary-foreground">{product.category}</span></p>
             {product.link && (
               <div className="mt-6">
@@ -59,7 +59,7 @@ const ProductDetailPage = () => {
             )}
             <div className="mt-8">
               <Link to={`/category/${product.category.toLowerCase().replace(/\s|\//g, '-')}`}>
-                <Button variant="outline" className="bg-transparent border border-gray-700 text-gray-300 hover:bg-gray-800">Wróć do kategorii</Button>
+                <Button variant="outline" className="bg-transparent border-border text-foreground hover:bg-gray-100">Wróć do kategorii</Button>
               </Link>
             </div>
           </div>

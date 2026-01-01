@@ -78,7 +78,7 @@ const AdminPage = () => {
           <Button onClick={logout} variant="destructive">Wyloguj</Button>
         </div>
 
-        <Card className="w-full max-w-2xl mx-auto bg-card text-card-foreground border border-gray-800">
+        <Card className="w-full max-w-2xl mx-auto bg-card text-card-foreground border-border">
           <CardHeader>
             <CardTitle className="text-2xl text-center text-primary-foreground">Dodaj Nowy Produkt</CardTitle>
           </CardHeader>

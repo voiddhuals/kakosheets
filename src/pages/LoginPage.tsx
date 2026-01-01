@@ -23,7 +23,7 @@ const LoginPage = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow flex items-center justify-center p-4">
-        <Card className="w-full max-w-md bg-card text-card-foreground border border-gray-800">
+        <Card className="w-full max-w-md bg-card text-card-foreground border-border">
           <CardHeader>
             <CardTitle className="text-2xl text-center text-primary-foreground">Zaloguj się do Panelu Admina</CardTitle>
           </CardHeader>
