@@ -92,3 +92,9 @@
     @apply bg-background text-foreground font-mono; /* Apply monospace font globally */
   }
 }
+
+.text-glow {
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), /* Cyan glow */
+               0 0 15px rgba(0, 255, 255, 0.4),
+               0 0 20px rgba(255, 0, 255, 0.3); /* Magenta secondary glow */
+}

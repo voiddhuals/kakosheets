@@ -33,7 +33,7 @@ const Header = () => {
       </nav>
       <div className="flex space-x-4">
         <GradientButton asChild>
-          <Link to="/admin">Admin Panel</Link>
+          <Link to="/login">Login</Link>
         </GradientButton>
       </div>
     </header>
