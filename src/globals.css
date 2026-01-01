@@ -16,8 +16,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 14.3% 10%;
 
-    --primary: 214 89% 52%; /* Klasyczny niebieski, jak w macOS */
-    --primary-foreground: 0 0% 100%; /* Biały tekst na niebieskim tle */
+    --primary: 0 84.2% 60.2%; /* Zmieniono na czerwień */
+    --primary-foreground: 0 0% 100%; /* Biały tekst na czerwonym tle */
 
     --secondary: 220 14.3% 92%; /* Jasny szary */
     --secondary-foreground: 220 14.3% 10%;
@@ -33,19 +33,19 @@
 
     --border: 220 14.3% 88%; /* Jasnoszare obramowanie */
     --input: 220 14.3% 92%;
-    --ring: 214 89% 52%; /* Niebieski pierścień */
+    --ring: 0 84.2% 60.2%; /* Zmieniono na czerwień */
 
     --radius: 0.75rem; /* Zwiększono promień zaokrągleń */
 
     /* Sidebar colors (zachowane, ale dostosowane do nowej palety) */
     --sidebar-background: 220 14.3% 15%;
     --sidebar-foreground: 220 14.3% 90%;
-    --sidebar-primary: 214 89% 52%;
+    --sidebar-primary: 0 84.2% 60.2%; /* Zmieniono na czerwień */
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14.3% 20%;
     --sidebar-accent-foreground: 220 14.3% 90%;
     --sidebar-border: 220 14.3% 20%;
-    --sidebar-ring: 214 89% 52%;
+    --sidebar-ring: 0 84.2% 60.2%; /* Zmieniono na czerwień */
   }
 
   .dark {
@@ -60,7 +60,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 14.3% 10%;
 
-    --primary: 214 89% 52%;
+    --primary: 0 84.2% 60.2%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14.3% 92%;
@@ -77,15 +77,15 @@
 
     --border: 220 14.3% 88%;
     --input: 220 14.3% 92%;
-    --ring: 214 89% 52%;
+    --ring: 0 84.2% 60.2%;
     --sidebar-background: 220 14.3% 15%;
     --sidebar-foreground: 220 14.3% 90%;
-    --sidebar-primary: 214 89% 52%;
+    --sidebar-primary: 0 84.2% 60.2%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14.3% 20%;
     --sidebar-accent-foreground: 220 14.3% 90%;
     --sidebar-border: 220 14.3% 20%;
-    --sidebar-ring: 214 89% 52%;
+    --sidebar-ring: 0 84.2% 60.2%;
   }
 }
 
