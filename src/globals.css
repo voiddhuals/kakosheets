@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 14.3% 10%;
 
-    --primary: 0 84.2% 60.2%; /* Zmieniono na czerwień */
+    --primary: 0 84.2% 40.2%; /* Ciemniejsza czerwień */
     --primary-foreground: 0 0% 100%; /* Biały tekst na czerwonym tle */
 
     --secondary: 220 14.3% 92%; /* Jasny szary */
@@ -33,19 +33,19 @@
 
     --border: 220 14.3% 88%; /* Jasnoszare obramowanie */
     --input: 220 14.3% 92%;
-    --ring: 0 84.2% 60.2%; /* Zmieniono na czerwień */
+    --ring: 0 84.2% 40.2%; /* Zmieniono na ciemniejszą czerwień */
 
     --radius: 0.75rem; /* Zwiększono promień zaokrągleń */
 
     /* Sidebar colors (zachowane, ale dostosowane do nowej palety) */
     --sidebar-background: 220 14.3% 15%;
     --sidebar-foreground: 220 14.3% 90%;
-    --sidebar-primary: 0 84.2% 60.2%; /* Zmieniono na czerwień */
+    --sidebar-primary: 0 84.2% 40.2%; /* Zmieniono na ciemniejszą czerwień */
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14.3% 20%;
     --sidebar-accent-foreground: 220 14.3% 90%;
     --sidebar-border: 220 14.3% 20%;
-    --sidebar-ring: 0 84.2% 60.2%; /* Zmieniono na czerwień */
+    --sidebar-ring: 0 84.2% 40.2%; /* Zmieniono na ciemniejszą czerwień */
   }
 
   .dark {
@@ -60,7 +60,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 14.3% 10%;
 
-    --primary: 0 84.2% 60.2%;
+    --primary: 0 84.2% 40.2%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14.3% 92%;
@@ -77,15 +77,15 @@
 
     --border: 220 14.3% 88%;
     --input: 220 14.3% 92%;
-    --ring: 0 84.2% 60.2%;
+    --ring: 0 84.2% 40.2%;
     --sidebar-background: 220 14.3% 15%;
     --sidebar-foreground: 220 14.3% 90%;
-    --sidebar-primary: 0 84.2% 60.2%;
+    --sidebar-primary: 0 84.2% 40.2%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14.3% 20%;
     --sidebar-accent-foreground: 220 14.3% 90%;
     --sidebar-border: 220 14.3% 20%;
-    --sidebar-ring: 0 84.2% 60.2%;
+    --sidebar-ring: 0 84.2% 40.2%;
   }
 }
 
