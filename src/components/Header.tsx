@@ -6,21 +6,21 @@ import GradientButton from './GradientButton';
 import MobileNav from './MobileNav';
 import LanguageToggle from './LanguageToggle';
 import { useTranslation } from '@/hooks/useTranslation';
-import { Home, Footprints, Shirt, Coat, Trousers, Hat, Gem, Package, LogIn } from 'lucide-react'; // Przywrócono Coat
+import { LogIn } from 'lucide-react'; // Pozostawiono tylko LogIn, jeśli jest używane poza navLinks
 
 const Header = () => {
   const { t } = useTranslation();
 
   const navLinks = [
-    { name: t("home"), path: "/", icon: Home },
-    { name: t("shoes"), path: "/category/shoes", icon: Footprints },
-    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters", icon: Shirt },
-    { name: t("tShirts"), path: "/category/t-shirts", icon: Shirt },
-    { name: t("jackets"), path: "/category/jackets", icon: Coat }, // Przywrócono Coat
-    { name: t("pantsShorts"), path: "/category/pants-shorts", icon: Trousers },
-    { name: t("headwear"), path: "/category/headwear", icon: Hat },
-    { name: t("accessories"), path: "/category/accessories", icon: Gem },
-    { name: t("otherStuff"), path: "/category/other-stuff", icon: Package },
+    { name: t("home"), path: "/" },
+    { name: t("shoes"), path: "/category/shoes" },
+    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters" },
+    { name: t("tShirts"), path: "/category/t-shirts" },
+    { name: t("jackets"), path: "/category/jackets" },
+    { name: t("pantsShorts"), path: "/category/pants-shorts" },
+    { name: t("headwear"), path: "/category/headwear" },
+    { name: t("accessories"), path: "/category/accessories" },
+    { name: t("otherStuff"), path: "/category/other-stuff" },
   ];
 
   return (
@@ -40,7 +40,6 @@ const Header = () => {
             to={link.path}
             className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-base px-3 py-1 transition-all duration-200 hover:scale-105"
           >
-            <link.icon className="h-4 w-4" />
             {link.name}
           </Link>
         ))}
