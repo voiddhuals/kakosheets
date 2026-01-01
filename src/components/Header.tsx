@@ -4,22 +4,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import GradientButton from './GradientButton';
 import MobileNav from './MobileNav';
-import LanguageToggle from './LanguageToggle'; // Import LanguageToggle
-import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
+import LanguageToggle from './LanguageToggle';
+import { useTranslation } from '@/hooks/useTranslation';
+import { Home, Footprints, Shirt, Coat, Trousers, Hat, Gem, Package, LogIn } from 'lucide-react'; // Importowanie ikonek
 
 const Header = () => {
   const { t } = useTranslation();
 
   const navLinks = [
-    { name: t("home"), path: "/" },
-    { name: t("shoes"), path: "/category/shoes" },
-    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters" },
-    { name: t("tShirts"), path: "/category/t-shirts" },
-    { name: t("jackets"), path: "/category/jackets" },
-    { name: t("pantsShorts"), path: "/category/pants-shorts" },
-    { name: t("headwear"), path: "/category/headwear" },
-    { name: t("accessories"), path: "/category/accessories" },
-    { name: t("otherStuff"), path: "/category/other-stuff" },
+    { name: t("home"), path: "/", icon: Home },
+    { name: t("shoes"), path: "/category/shoes", icon: Footprints },
+    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters", icon: Shirt },
+    { name: t("tShirts"), path: "/category/t-shirts", icon: Shirt }, // Używamy Shirt dla T-shirtów
+    { name: t("jackets"), path: "/category/jackets", icon: Coat },
+    { name: t("pantsShorts"), path: "/category/pants-shorts", icon: Trousers },
+    { name: t("headwear"), path: "/category/headwear", icon: Hat },
+    { name: t("accessories"), path: "/category/accessories", icon: Gem },
+    { name: t("otherStuff"), path: "/category/other-stuff", icon: Package },
   ];
 
   return (
@@ -37,16 +38,20 @@ const Header = () => {
           <Link
             key={link.name}
             to={link.path}
-            className="text-muted-foreground hover:text-primary transition-colors text-base px-3 py-1 transition-all duration-200 hover:scale-105"
+            className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-base px-3 py-1 transition-all duration-200 hover:scale-105"
           >
+            <link.icon className="h-4 w-4" /> {/* Renderowanie ikonki */}
             {link.name}
           </Link>
         ))}
       </nav>
-      <div className="hidden md:flex space-x-4 items-center"> {/* Dodano items-center */}
-        <LanguageToggle /> {/* Dodano przycisk zmiany języka */}
+      <div className="hidden md:flex space-x-4 items-center">
+        <LanguageToggle />
         <GradientButton asChild>
-          <Link to="/login">{t("login")}</Link>
+          <Link to="/login" className="flex items-center gap-1">
+            <LogIn className="h-4 w-4" /> {/* Ikonka dla Logowania */}
+            {t("login")}
+          </Link>
         </GradientButton>
       </div>
     </header>
