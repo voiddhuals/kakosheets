@@ -21,7 +21,7 @@ const categoryMap: { [key: string]: string } = {
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const categoryName = categorySlug ? categoryMap[categorySlug] : undefined;
-  const { products } = useProductContext(); // Use products from context
+  const { products } = useProductContext(); // Użyj produktów z kontekstu
 
   const filteredProducts = categoryName
     ? products.filter((product) => product.category === categoryName)
