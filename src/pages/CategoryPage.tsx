@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import { MadeWithDyad } from "@/components/made-with-dyad";
-import { useProductContext } from "@/context/ProductContext"; // Import useProductContext
+import { useProductContext } from "@/context/ProductContext";
 
 const categoryMap: { [key: string]: string } = {
   "shoes": "Shoes",
@@ -21,17 +21,17 @@ const categoryMap: { [key: string]: string } = {
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const categoryName = categorySlug ? categoryMap[categorySlug] : undefined;
-  const { products } = useProductContext(); // Użyj produktów z kontekstu
+  const { products } = useProductContext();
 
   const filteredProducts = categoryName
     ? products.filter((product) => product.category === categoryName)
     : [];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
-      <main className="container mx-auto p-4">
-        <h1 className="text-5xl font-bold text-center my-8">
+      <main className="flex-grow container mx-auto p-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-center my-8 text-primary-foreground">
           {categoryName || "Kategoria nie znaleziona"}
         </h1>
         {filteredProducts.length > 0 ? (
@@ -39,7 +39,7 @@ const CategoryPage = () => {
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
-                id={product.id} // Przekazanie ID
+                id={product.id}
                 image={product.image}
                 name={product.name}
                 price={product.price}
@@ -47,7 +47,7 @@ const CategoryPage = () => {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-600">Brak produktów w tej kategorii.</p>
+          <p className="text-center text-muted-foreground">Brak produktów w tej kategorii.</p>
         )}
       </main>
       <MadeWithDyad />

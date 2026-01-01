@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { useProductContext } from "@/context/ProductContext";
 import { Button } from '@/components/ui/button';
+import GradientButton from '@/components/GradientButton'; // Import GradientButton
 
 const ProductDetailPage = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -15,15 +16,15 @@ const ProductDetailPage = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
         <Header />
         <main className="flex-grow container mx-auto p-4 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Produkt nie znaleziony</h1>
-            <p className="text-xl text-gray-600 mb-4">
+            <h1 className="text-4xl font-bold mb-4 text-primary-foreground">Produkt nie znaleziony</h1>
+            <p className="text-xl text-muted-foreground mb-4">
               Przepraszamy, ale produkt o podanym ID nie istnieje.
             </p>
-            <Link to="/" className="text-blue-500 hover:text-blue-700 underline">
+            <Link to="/" className="text-cyan-400 hover:text-cyan-600 underline">
               Wróć do strony głównej
             </Link>
           </div>
@@ -34,10 +35,10 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow container mx-auto p-8">
-        <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div className="bg-card text-card-foreground shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-8 border border-gray-800">
           <div className="md:w-1/2 flex justify-center">
             <img
               src={product.image}
@@ -46,19 +47,19 @@ const ProductDetailPage = () => {
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">{product.name}</h1>
-            <p className="text-3xl font-semibold text-gray-900 mb-6">{product.price}</p>
-            <p className="text-lg text-gray-600 mb-4">Kategoria: <span className="font-medium">{product.category}</span></p>
+            <h1 className="text-4xl font-bold text-primary-foreground mb-4">{product.name}</h1>
+            <p className="text-3xl font-semibold text-cyan-400 mb-6">{product.price}</p>
+            <p className="text-lg text-muted-foreground mb-4">Kategoria: <span className="font-medium text-primary-foreground">{product.category}</span></p>
             {product.link && (
               <div className="mt-6">
                 <a href={product.link} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full md:w-auto">Przejdź do produktu</Button>
+                  <GradientButton className="w-full md:w-auto">Przejdź do produktu</GradientButton>
                 </a>
               </div>
             )}
             <div className="mt-8">
               <Link to={`/category/${product.category.toLowerCase().replace(/\s|\//g, '-')}`}>
-                <Button variant="outline">Wróć do kategorii</Button>
+                <Button variant="outline" className="bg-transparent border border-gray-700 text-gray-300 hover:bg-gray-800">Wróć do kategorii</Button>
               </Link>
             </div>
           </div>

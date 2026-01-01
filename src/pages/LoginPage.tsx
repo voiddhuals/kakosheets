@@ -20,38 +20,40 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow flex items-center justify-center p-4">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md bg-card text-card-foreground border border-gray-800">
           <CardHeader>
-            <CardTitle className="text-2xl text-center">Zaloguj się do Panelu Admina</CardTitle>
+            <CardTitle className="text-2xl text-center text-primary-foreground">Zaloguj się do Panelu Admina</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="username">Nazwa użytkownika</Label>
+                <Label htmlFor="username" className="text-muted-foreground">Nazwa użytkownika</Label>
                 <Input
                   id="username"
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
+                  className="bg-input text-foreground border-border"
                 />
               </div>
               <div>
-                <Label htmlFor="password">Hasło</Label>
+                <Label htmlFor="password" className="text-muted-foreground">Hasło</Label>
                 <Input
                   id="password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  className="bg-input text-foreground border-border"
                 />
               </div>
-              <Button type="submit" className="w-full">Zaloguj</Button>
+              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Zaloguj</Button>
             </form>
-            <p className="text-center text-sm text-gray-500 mt-4">
+            <p className="text-center text-sm text-muted-foreground mt-4">
               Użyj: admin / password
             </p>
           </CardContent>
