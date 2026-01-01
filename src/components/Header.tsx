@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-background text-foreground border-b border-gray-800">
-      <div className="font-mono text-xl text-green-400 mb-4 md:mb-0">
+      <div className="font-orbitron text-2xl md:text-3xl font-bold mb-4 md:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-600 text-glow">
         <Link to="/">
           <span className="text-cyan-400">&gt;</span> Kakosheets<span className="animate-pulse">_</span>
         </Link>
