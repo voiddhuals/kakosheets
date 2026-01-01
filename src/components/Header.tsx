@@ -22,7 +22,7 @@ const Header = () => {
     <header className="flex justify-between items-center p-4 bg-background text-foreground border-b border-border shadow-sm">
       <div className="flex items-center gap-4">
         <MobileNav />
-        <div className="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">
+        <div className="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-red-800 to-black">
           <Link to="/">
             Kakosheets
           </Link>
