@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GradientButton from './GradientButton';
-import MobileNav from './MobileNav'; // Importujemy nowy komponent
+import MobileNav from './MobileNav';
 
 const Header = () => {
   const navLinks = [
@@ -21,8 +21,8 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center p-4 bg-background text-foreground border-b border-border shadow-sm">
       <div className="flex items-center gap-4">
-        <MobileNav /> {/* Nawigacja mobilna */}
-        <div className="font-orbitron text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-red-600 text-glow">
+        <MobileNav />
+        <div className="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600">
           <Link to="/">
             Kakosheets
           </Link>
@@ -33,7 +33,7 @@ const Header = () => {
           <Link
             key={link.name}
             to={link.path}
-            className="text-muted-foreground hover:text-primary transition-colors text-base border border-border rounded-sm px-3 py-1 transition-all duration-200 hover:scale-105 hover:border-red-500"
+            className="text-muted-foreground hover:text-primary transition-colors text-base px-3 py-1 transition-all duration-200 hover:scale-105"
           >
             {link.name}
           </Link>

@@ -18,9 +18,9 @@ export default {
       },
     },
     extend: {
+      // Usunięto niestandardowe definicje czcionek dla bardziej systemowego wyglądu
       fontFamily: {
-        mono: ['"Space Mono"', 'monospace'], // Dodanie czcionki Space Mono
-        orbitron: ['"Orbitron"', 'sans-serif'], // Dodanie czcionki Orbitron
+        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -68,9 +68,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0.75rem", // Zwiększono promień zaokrągleń
+        md: "calc(0.75rem - 2px)",
+        sm: "calc(0.75rem - 4px)",
       },
       keyframes: {
         "accordion-down": {

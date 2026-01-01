@@ -31,7 +31,7 @@ const CategoryPage = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow container mx-auto p-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center my-8 text-primary-foreground">
+        <h1 className="text-4xl md:text-5xl font-bold text-center my-8 text-foreground">
           {categoryName || "Kategoria nie znaleziona"}
         </h1>
         {filteredProducts.length > 0 ? (

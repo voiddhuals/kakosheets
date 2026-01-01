@@ -30,7 +30,7 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent side="left" className="w-[250px] sm:w-[300px] bg-card text-card-foreground border-r border-border p-4">
         <Link to="/" className="flex items-center mb-6">
-          <span className="font-orbitron text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-red-600 text-glow">
+          <span className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600">
             Kakosheets
           </span>
         </Link>

@@ -13,10 +13,10 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ id, image, name, price }) => {
   return (
     <Link to={`/product/${id}`} className="block">
-      <div className="border border-gray-800 p-4 flex flex-col items-center text-center bg-card text-card-foreground hover:shadow-lg transition-shadow duration-200">
-        <img src={image} alt={name} className="w-full h-auto object-contain mb-2 max-h-48" />
+      <div className="border border-border rounded-lg p-4 flex flex-col items-center text-center bg-card text-card-foreground shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02]">
+        <img src={image} alt={name} className="w-full h-auto object-contain mb-2 max-h-48 rounded-md" />
         <p className="text-sm text-muted-foreground mb-1">{name}</p>
-        <p className="font-semibold text-primary-foreground">{price}</p>
+        <p className="font-semibold text-foreground">{price}</p>
       </div>
     </Link>
   );

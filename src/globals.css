@@ -2,89 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Importowanie czcionki Orbitron */
-@import '@fontsource/orbitron';
+/* Usunięto import czcionki Orbitron dla bardziej systemowego wyglądu */
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Bardzo jasny szary/off-white */
-    --foreground: 222.2 84% 4.9%; /* Ciemny niebieski/czarny */
+    --background: 220 14.3% 95.9%; /* Bardzo jasny szary */
+    --foreground: 220 14.3% 10%; /* Ciemny szary */
 
     --card: 0 0% 100%; /* Czysta biel */
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 14.3% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 14.3% 10%;
 
-    --primary: 0 84.2% 60.2%; /* Żywy czerwony */
-    --primary-foreground: 222.2 84% 4.9%; /* Ciemny tekst na czerwonym tle */
+    --primary: 214 89% 52%; /* Klasyczny niebieski, jak w macOS */
+    --primary-foreground: 0 0% 100%; /* Biały tekst na niebieskim tle */
 
-    --secondary: 210 40% 96.1%; /* Jasny szary */
-    --secondary-foreground: 222.2 47.4% 11.2%; /* Ciemny */
+    --secondary: 220 14.3% 92%; /* Jasny szary */
+    --secondary-foreground: 220 14.3% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 20.2% 65.1%; /* Średni szary */
+    --muted: 220 14.3% 92%;
+    --muted-foreground: 220 14.3% 45%; /* Średni szary */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 14.3% 92%;
+    --accent-foreground: 220 14.3% 10%;
 
-    --destructive: 0 62.8% 30.6%; /* Ciemny czerwony */
-    --destructive-foreground: 222.2 84% 4.9%; /* Ciemny tekst na destrukcyjnym tle */
+    --destructive: 0 62.8% 30.6%; /* Ciemny czerwony (zachowany dla ostrzeżeń) */
+    --destructive-foreground: 0 0% 100%; /* Biały tekst na czerwonym tle */
 
-    --border: 214.3 31.8% 91.4%; /* Jasnoszare obramowanie */
-    --input: 214.3 31.8% 91.4%;
-    --ring: 0 84.2% 60.2%; /* Czerwony pierścień */
+    --border: 220 14.3% 88%; /* Jasnoszare obramowanie */
+    --input: 220 14.3% 92%;
+    --ring: 214 89% 52%; /* Niebieski pierścień */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Zwiększono promień zaokrągleń */
 
-    --sidebar-background: 240 5.9% 10%; /* Pozostawione ciemne, jeśli sidebar nie jest używany lub ma być ciemny */
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar colors (zachowane, ale dostosowane do nowej palety) */
+    --sidebar-background: 220 14.3% 15%;
+    --sidebar-foreground: 220 14.3% 90%;
+    --sidebar-primary: 214 89% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 14.3% 20%;
+    --sidebar-accent-foreground: 220 14.3% 90%;
+    --sidebar-border: 220 14.3% 20%;
+    --sidebar-ring: 214 89% 52%;
   }
 
   .dark {
+    /* Na potrzeby macOS-like, na razie utrzymujemy jasny motyw jako domyślny */
     /* Możesz zdefiniować ciemny motyw tutaj, jeśli chcesz, aby użytkownik mógł przełączać */
-    /* Na razie pozostawiam tak samo jak jasny, aby uniknąć nieoczekiwanych zmian */
-    --background: 0 0% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 14.3% 95.9%;
+    --foreground: 220 14.3% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 14.3% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 14.3% 10%;
 
-    --primary: 0 84.2% 60.2%;
-    --primary-foreground: 222.2 84% 4.9%;
+    --primary: 214 89% 52%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14.3% 92%;
+    --secondary-foreground: 220 14.3% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 14.3% 92%;
+    --muted-foreground: 220 14.3% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 14.3% 92%;
+    --accent-foreground: 220 14.3% 10%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 222.2 84% 4.9%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 0 84.2% 60.2%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 220 14.3% 88%;
+    --input: 220 14.3% 92%;
+    --ring: 214 89% 52%;
+    --sidebar-background: 220 14.3% 15%;
+    --sidebar-foreground: 220 14.3% 90%;
+    --sidebar-primary: 214 89% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 14.3% 20%;
+    --sidebar-accent-foreground: 220 14.3% 90%;
+    --sidebar-border: 220 14.3% 20%;
+    --sidebar-ring: 214 89% 52%;
   }
 }
 
@@ -98,8 +98,4 @@
   }
 }
 
-.text-glow {
-  text-shadow: 0 0 4px rgba(255, 0, 0, 0.6), /* Softer red glow */
-               0 0 8px rgba(255, 69, 0, 0.4), /* Softer orange-red glow */
-               0 0 12px rgba(255, 0, 0, 0.2); /* Even lighter red glow */
-}
+/* Usunięto efekt text-glow */

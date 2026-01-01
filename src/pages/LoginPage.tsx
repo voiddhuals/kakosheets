@@ -23,9 +23,9 @@ const LoginPage = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       <main className="flex-grow flex items-center justify-center p-4">
-        <Card className="w-full max-w-md bg-card text-card-foreground border-border">
+        <Card className="w-full max-w-md bg-card text-card-foreground border border-border shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-center text-primary-foreground">Zaloguj się do Panelu Admina</CardTitle>
+            <CardTitle className="text-2xl text-center text-foreground">Zaloguj się do Panelu Admina</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">

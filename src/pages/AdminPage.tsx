@@ -74,13 +74,13 @@ const AdminPage = () => {
       <Header />
       <main className="flex-grow container mx-auto p-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground">Panel Administracyjny</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">Panel Administracyjny</h1>
           <Button onClick={logout} variant="destructive">Wyloguj</Button>
         </div>
 
-        <Card className="w-full max-w-2xl mx-auto bg-card text-card-foreground border-border">
+        <Card className="w-full max-w-2xl mx-auto bg-card text-card-foreground border border-border shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-center text-primary-foreground">Dodaj Nowy Produkt</CardTitle>
+            <CardTitle className="text-2xl text-center text-foreground">Dodaj Nowy Produkt</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
