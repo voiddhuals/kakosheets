@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Usunięto import czcionki Orbitron dla bardziej systemowego wyglądu */
+/* Import czcionki Inter z Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @layer base {
   :root {
@@ -94,7 +95,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans; /* Zastosowanie nowej czcionki */
   }
 }
 
