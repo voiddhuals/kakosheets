@@ -92,12 +92,12 @@
   }
 
   body {
-    @apply bg-background text-foreground; /* Usunięto font-mono, aby używać domyślnej czcionki sans-serif */
+    @apply bg-background text-foreground;
   }
 }
 
 .text-glow {
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), /* Cyan glow */
-               0 0 15px rgba(0, 255, 255, 0.4),
-               0 0 20px rgba(255, 0, 255, 0.3); /* Magenta secondary glow */
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), /* Strong red glow */
+               0 0 15px rgba(255, 69, 0, 0.6), /* Orange-red glow */
+               0 0 20px rgba(255, 0, 0, 0.4); /* Lighter red glow */
 }
