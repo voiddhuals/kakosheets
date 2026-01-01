@@ -24,9 +24,13 @@ const Header = () => {
           Kakosheets
         </Link>
       </div>
-      <nav className="flex-grow flex flex-wrap justify-center space-x-4 md:space-x-8 mb-4 md:mb-0">
+      <nav className="flex-grow flex flex-wrap justify-center gap-2 md:gap-4 mb-4 md:mb-0">
         {navLinks.map((link) => (
-          <Link key={link.name} to={link.path} className="text-gray-700 hover:text-red-400 transition-colors text-base">
+          <Link 
+            key={link.name} 
+            to={link.path} 
+            className="text-gray-700 hover:text-red-400 transition-colors text-base border border-border rounded-md px-3 py-1"
+          >
             {link.name}
           </Link>
         ))}

@@ -17,7 +17,7 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 0 84.2% 60.2%; /* Żywy czerwony */
-    --primary-foreground: 0 0% 100%; /* Biały tekst na czerwonym tle */
+    --primary-foreground: 222.2 84% 4.9%; /* Ciemny tekst na czerwonym tle */
 
     --secondary: 210 40% 96.1%; /* Jasny szary */
     --secondary-foreground: 222.2 47.4% 11.2%; /* Ciemny */
@@ -29,7 +29,7 @@
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 62.8% 30.6%; /* Ciemny czerwony */
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 222.2 84% 4.9%; /* Ciemny tekst na destrukcyjnym tle */
 
     --border: 214.3 31.8% 91.4%; /* Jasnoszare obramowanie */
     --input: 214.3 31.8% 91.4%;
@@ -60,7 +60,7 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 0 84.2% 60.2%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 222.2 84% 4.9%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -72,7 +72,7 @@
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 222.2 84% 4.9%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
