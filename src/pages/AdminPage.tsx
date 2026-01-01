@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 const AdminPage = () => {
   const { addProduct, logout } = useProductContext();
   const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState(''); // Będzie przechowywać sformatowaną cenę (np. "$12.34")
   const [image, setImage] = useState('/placeholder.svg'); // Default placeholder image
   const [category, setCategory] = useState('');
   const [productLink, setProductLink] = useState(''); // Nowe pole dla linku
@@ -24,13 +24,61 @@ const AdminPage = () => {
     "Headwear", "Accessories", "Other Stuff"
   ];
 
+  // Funkcja do formatowania ceny w polu input
+  const formatPriceForInput = (input: string): string => {
+    // Usuń istniejący '$' dla łatwiejszego przetwarzania
+    let cleanInput = input.replace(/\$/g, '');
+
+    // Pozwól tylko na cyfry i pojedynczy znak dziesiętny
+    cleanInput = cleanInput.replace(/[^0-9.]/g, '');
+
+    // Obsłuż wiele znaków dziesiętnych (zachowaj tylko pierwszy)
+    const parts = cleanInput.split('.');
+    if (parts.length > 2) {
+      cleanInput = parts[0] + '.' + parts.slice(1).join('');
+    }
+
+    // Jeśli jest znak dziesiętny, ogranicz do dwóch cyfr po nim
+    if (cleanInput.includes('.')) {
+      const [integerPart, decimalPart] = cleanInput.split('.');
+      if (decimalPart && decimalPart.length > 2) {
+        cleanInput = integerPart + '.' + decimalPart.slice(0, 2);
+      }
+    }
+
+    // Jeśli input jest pusty, zwróć pusty string
+    if (!cleanInput) return '';
+
+    // Jeśli input to tylko kropka lub zaczyna się od kropki, dodaj '0'
+    if (cleanInput === '.') return '$0.';
+    if (cleanInput.startsWith('.')) return `$0${cleanInput}`;
+
+    // Jeśli kończy się kropką, zachowaj ją dla wygody pisania
+    if (cleanInput.endsWith('.')) {
+      return `$${cleanInput}`;
+    }
+
+    // Konwertuj na liczbę i sformatuj do dwóch miejsc po przecinku
+    const num = parseFloat(cleanInput);
+    if (isNaN(num)) {
+      return ''; // Powinno być niemożliwe po wcześniejszej sanitacji
+    }
+
+    return `$${num.toFixed(2)}`;
+  };
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedValue = formatPriceForInput(e.target.value);
+    setPrice(formattedValue);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !price || !category) {
       alert("Wszystkie pola są wymagane!");
       return;
     }
-    addProduct({ name, price, image, category, link: productLink }); // Przekazanie linku
+    addProduct({ name, price, image, category, link: productLink }); // Przekazanie sformatowanej ceny
     setName('');
     setPrice('');
     setImage('/placeholder.svg');
@@ -69,8 +117,9 @@ const AdminPage = () => {
                   id="price"
                   type="text"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={handlePriceChange}
                   required
+                  placeholder="$0.00"
                 />
               </div>
               <div>
