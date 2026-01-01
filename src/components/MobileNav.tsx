@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Menu, Home, Footprints, Shirt, Coat, Trousers, Hat, Gem, Package, LogIn } from 'lucide-react'; // Importowanie ikonek
+import { Menu, Home, Footprints, Shirt, Coat, Trousers, Hat, Gem, Package, LogIn } from 'lucide-react'; // Przywrócono Coat
 import { Separator } from '@/components/ui/separator';
 import LanguageToggle from './LanguageToggle';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -17,7 +17,7 @@ const MobileNav = () => {
     { name: t("shoes"), path: "/category/shoes", icon: Footprints },
     { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters", icon: Shirt },
     { name: t("tShirts"), path: "/category/t-shirts", icon: Shirt },
-    { name: t("jackets"), path: "/category/jackets", icon: Coat },
+    { name: t("jackets"), path: "/category/jackets", icon: Coat }, // Przywrócono Coat
     { name: t("pantsShorts"), path: "/category/pants-shorts", icon: Trousers },
     { name: t("headwear"), path: "/category/headwear", icon: Hat },
     { name: t("accessories"), path: "/category/accessories", icon: Gem },
@@ -46,7 +46,7 @@ const MobileNav = () => {
               to={link.path}
               className="flex items-center gap-2 px-3 py-2 text-lg font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors duration-200"
             >
-              <link.icon className="h-5 w-5" /> {/* Renderowanie ikonki */}
+              <link.icon className="h-5 w-5" />
               {link.name}
             </Link>
           ))}
@@ -55,7 +55,7 @@ const MobileNav = () => {
             to="/login"
             className="flex items-center gap-2 px-3 py-2 text-lg font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors duration-200"
           >
-            <LogIn className="h-5 w-5" /> {/* Ikonka dla Logowania */}
+            <LogIn className="h-5 w-5" />
             {t("login")}
           </Link>
           <div className="px-3 py-2">
