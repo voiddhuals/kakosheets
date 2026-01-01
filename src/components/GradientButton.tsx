@@ -20,7 +20,7 @@ const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
         {...props}
       >
         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFFFFF_0%,#FF0000_50%,#FFFFFF_100%)]" />
-        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-red-950 px-3 py-1 text-sm font-medium text-foreground backdrop-blur-3xl">
+        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-primary px-3 py-1 text-sm font-medium text-primary-foreground backdrop-blur-3xl">
           {children}
         </span>
       </Button>
