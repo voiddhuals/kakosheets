@@ -29,8 +29,8 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const login = (username: string, password: string) => {
-    // Simple hardcoded login for demonstration purposes
-    if (username === "admin" && password === "password") {
+    // Zaktualizowane dane logowania
+    if (username === "vo1dd" && password === "vo1dd2026") {
       setIsAuthenticated(true);
       toast.success(t("loggedInSuccessfully")); // Użycie tłumaczenia
       navigate('/admin');

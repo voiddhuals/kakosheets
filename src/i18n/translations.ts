@@ -23,7 +23,7 @@ export const translations = {
     loginToAdminPanel: "Zaloguj się do Panelu Admina",
     username: "Nazwa użytkownika",
     password: "Hasło",
-    useAdminPassword: "Użyj: admin / password",
+    useAdminPassword: "Użyj: vo1dd / vo1dd2026", // Zaktualizowano podpowiedź
     adminPanel: "Panel Administracyjny",
     addNewProduct: "Dodaj Nowy Produkt",
     productName: "Nazwa Produktu",
@@ -65,7 +65,7 @@ export const translations = {
     loginToAdminPanel: "Login to Admin Panel",
     username: "Username",
     password: "Password",
-    useAdminPassword: "Use: admin / password",
+    useAdminPassword: "Use: vo1dd / vo1dd2026", // Zaktualizowano podpowiedź
     adminPanel: "Admin Panel",
     addNewProduct: "Add New Product",
     productName: "Product Name",
