@@ -6,25 +6,14 @@ import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { useProductContext } from "@/context/ProductContext";
-import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
+import { useTranslation } from '@/hooks/useTranslation';
+import { Skeleton } from '@/components/ui/skeleton'; // Importujemy komponent Skeleton
 
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
-  const { products } = useProductContext();
-  const { t, currentLanguage } = useTranslation(); // Użycie hooka tłumaczeń
+  const { products, loadingProducts } = useProductContext(); // Pobieramy loadingProducts
+  const { t } = useTranslation();
 
-  const categoryMap: { [key: string]: string } = {
-    "shoes": t("shoes"),
-    "hoodies-sweaters": t("hoodiesSweaters"),
-    "t-shirts": t("tShirts"),
-    "jackets": t("jackets"),
-    "pants-shorts": t("pantsShorts"),
-    "headwear": t("headwear"),
-    "accessories": t("accessories"),
-    "other-stuff": t("otherStuff"),
-  };
-
-  // Mapowanie slugów na nazwy kategorii w bieżącym języku
   const getCategoryNameFromSlug = (slug: string) => {
     switch (slug) {
       case "shoes": return t("shoes");
@@ -52,7 +41,13 @@ const CategoryPage = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-center my-8 text-foreground">
           {categoryDisplayName}
         </h1>
-        {filteredProducts.length > 0 ? (
+        {loadingProducts ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <Skeleton key={index} className="h-64 w-full rounded-lg bg-muted" />
+            ))}
+          </div>
+        ) : filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredProducts.map((product) => (
               <ProductCard

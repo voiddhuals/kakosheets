@@ -5,10 +5,13 @@ import Header from "@/components/Header";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import GradientButton from '@/components/GradientButton';
 import { Link } from 'react-router-dom';
-import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
+import { useTranslation } from '@/hooks/useTranslation';
+import { useProductContext } from '@/context/ProductContext'; // Importujemy useProductContext
+import { Skeleton } from '@/components/ui/skeleton'; // Importujemy komponent Skeleton
 
 const Index = () => {
-  const { t } = useTranslation(); // Użycie hooka tłumaczeń
+  const { t } = useTranslation();
+  const { loadingProducts } = useProductContext(); // Pobieramy loadingProducts
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -19,12 +22,18 @@ const Index = () => {
         </h1>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/category/shoes">
-            <GradientButton size="lg">{t("browseProducts")}</GradientButton> {/* Powiększony przycisk */}
+            <GradientButton size="lg">{t("browseProducts")}</GradientButton>
           </Link>
           <a href="https://ikako.vip/r/wojdd" target="_blank" rel="noopener noreferrer">
-            <GradientButton size="lg">{t("kakobuyCoupons")}</GradientButton> {/* Powiększony przycisk */}
+            <GradientButton size="lg">{t("kakobuyCoupons")}</GradientButton>
           </a>
         </div>
+        {loadingProducts && (
+          <div className="mt-8 text-muted-foreground">
+            <p>{t("loadingProducts")}</p>
+            <Skeleton className="h-4 w-48 mt-2 mx-auto bg-muted" />
+          </div>
+        )}
       </main>
       <MadeWithDyad />
     </div>

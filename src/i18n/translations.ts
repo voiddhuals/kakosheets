@@ -12,7 +12,7 @@ export const translations = {
     login: "Zaloguj",
     logout: "Wyloguj",
     browseProducts: "Przeglądaj Produkty",
-    kakobuyCoupons: "410$ kakobuy coupons", // Nowe tłumaczenie
+    kakobuyCoupons: "410$ kakobuy coupons",
     categoryNotFound: "Kategoria nie znaleziona",
     noProductsInCategory: "Brak produktów w tej kategorii.",
     productNotFound: "Produkt nie znaleziony",
@@ -41,6 +41,11 @@ export const translations = {
     productsNotPersistent: "Pamiętaj: Dodane produkty nie będą trwałe i znikną po odświeżeniu strony, ponieważ aplikacja działa tylko po stronie klienta.",
     openNavigationMenu: "Otwórz menu nawigacyjne",
     madeWithDyad: "Stworzone z Dyad",
+    errorFetchingProducts: "Błąd podczas pobierania produktów.", // Nowe tłumaczenie
+    errorAddingProduct: "Błąd podczas dodawania produktu.", // Nowe tłumaczenie
+    notAuthenticatedToAddProduct: "Musisz być zalogowany, aby dodać produkt.", // Nowe tłumaczenie
+    errorLoggingOut: "Błąd podczas wylogowywania.", // Nowe tłumaczenie
+    loadingProducts: "Ładowanie produktów...", // Nowe tłumaczenie
   },
   en: {
     home: "Home",
@@ -55,7 +60,7 @@ export const translations = {
     login: "Login",
     logout: "Logout",
     browseProducts: "Browse Products",
-    kakobuyCoupons: "410$ kakobuy coupons", // Nowe tłumaczenie
+    kakobuyCoupons: "410$ kakobuy coupons",
     categoryNotFound: "Category not found",
     noProductsInCategory: "No products in this category.",
     productNotFound: "Product not found",
@@ -84,6 +89,11 @@ export const translations = {
     productsNotPersistent: "Note: Added products will not be persistent and will disappear after refreshing the page, as the application runs only client-side.",
     openNavigationMenu: "Open navigation menu",
     madeWithDyad: "Made with Dyad",
+    errorFetchingProducts: "Error fetching products.", // New translation
+    errorAddingProduct: "Error adding product.", // New translation
+    notAuthenticatedToAddProduct: "You must be logged in to add a product.", // New translation
+    errorLoggingOut: "Error logging out.", // New translation
+    loadingProducts: "Loading products...", // New translation
   },
 };
 
