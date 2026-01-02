@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Header from '@/components/Header';
 import { MadeWithDyad } from '@/components/made-with-dyad';
-import { useTranslation } from '@/hooks/useTranslation'; // Import useTranslation
+import { useTranslation } from '@/hooks/useTranslation';
 
 const AdminPage = () => {
   const { addProduct, logout } = useProductContext();
@@ -18,7 +18,7 @@ const AdminPage = () => {
   const [image, setImage] = useState('/placeholder.svg');
   const [category, setCategory] = useState('');
   const [productLink, setProductLink] = useState('');
-  const { t } = useTranslation(); // Użycie hooka tłumaczeń
+  const { t } = useTranslation();
 
   const categories = [
     t("shoes"), t("hoodiesSweaters"), t("tShirts"), t("jackets"), t("pantsShorts"),
@@ -59,7 +59,7 @@ const AdminPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !price || !category) {
-      alert(t("allFieldsRequired")); // Użycie tłumaczenia
+      alert(t("allFieldsRequired"));
       return;
     }
     addProduct({ name, price, image, category, link: productLink });
@@ -75,18 +75,18 @@ const AdminPage = () => {
       <Header />
       <main className="flex-grow container mx-auto p-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">{t("adminPanel")}</h1> {/* Użycie tłumaczenia */}
-          <Button onClick={logout} variant="destructive">{t("logout")}</Button> {/* Użycie tłumaczenia */}
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">{t("adminPanel")}</h1>
+          <Button onClick={logout} variant="destructive">{t("logout")}</Button>
         </div>
 
         <Card className="w-full max-w-2xl mx-auto bg-card text-card-foreground border border-border shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-center text-foreground">{t("addNewProduct")}</CardTitle> {/* Użycie tłumaczenia */}
+            <CardTitle className="text-2xl text-center text-foreground">{t("addNewProduct")}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="name" className="text-muted-foreground">{t("productName")}</Label> {/* Użycie tłumaczenia */}
+                <Label htmlFor="name" className="text-muted-foreground">{t("productName")}</Label>
                 <Input
                   id="name"
                   type="text"
@@ -97,7 +97,7 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="price" className="text-muted-foreground">{t("price")}</Label> {/* Użycie tłumaczenia */}
+                <Label htmlFor="price" className="text-muted-foreground">{t("price")}</Label>
                 <Input
                   id="price"
                   type="text"
@@ -109,7 +109,7 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="image" className="text-muted-foreground">{t("imageUrl")}</Label> {/* Użycie tłumaczenia */}
+                <Label htmlFor="image" className="text-muted-foreground">{t("imageUrl")}</Label>
                 <Input
                   id="image"
                   type="text"
@@ -120,7 +120,7 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="productLink" className="text-muted-foreground">{t("productLinkOptional")}</Label> {/* Użycie tłumaczenia */}
+                <Label htmlFor="productLink" className="text-muted-foreground">{t("productLinkOptional")}</Label>
                 <Input
                   id="productLink"
                   type="url"
@@ -131,10 +131,10 @@ const AdminPage = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="category" className="text-muted-foreground">{t("category")}</Label> {/* Użycie tłumaczenia */}
+                <Label htmlFor="category" className="text-muted-foreground">{t("category")}</Label>
                 <Select onValueChange={setCategory} value={category} required>
                   <SelectTrigger id="category" className="bg-input text-foreground border-border">
-                    <SelectValue placeholder={t("selectCategory")} /> {/* Użycie tłumaczenia */}
+                    <SelectValue placeholder={t("selectCategory")} />
                   </SelectTrigger>
                   <SelectContent className="bg-card text-card-foreground border-border">
                     {categories.map((cat) => (
@@ -143,13 +143,10 @@ const AdminPage = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">{t("addProduct")}</Button> {/* Użycie tłumaczenia */}
+              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">{t("addProduct")}</Button>
             </form>
           </CardContent>
         </Card>
-        <p className="text-center text-sm text-muted-foreground mt-8">
-          {t("productsNotPersistent")} {/* Użycie tłumaczenia */}
-        </p>
       </main>
       <MadeWithDyad />
     </div>

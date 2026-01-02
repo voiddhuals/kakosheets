@@ -22,9 +22,9 @@ export const translations = {
     goToProduct: "Przejdź do produktu",
     returnToCategory: "Wróć do kategorii",
     loginToAdminPanel: "Zaloguj się do Panelu Admina",
-    username: "Nazwa użytkownika",
+    username: "Nazwa użytkownika", // Zachowano, ale LoginPage używa emaila
     password: "Hasło",
-    useAdminPassword: "Użyj: vo1dd / vo1dd2026",
+    registerAdminAccount: "Zarejestruj konto administratora w Supabase, aby się zalogować.", // Zmieniono komunikat
     adminPanel: "Panel Administracyjny",
     addNewProduct: "Dodaj Nowy Produkt",
     productName: "Nazwa Produktu",
@@ -35,17 +35,17 @@ export const translations = {
     addProduct: "Dodaj Produkt",
     allFieldsRequired: "Wszystkie pola są wymagane!",
     productAddedSuccessfully: "Produkt został pomyślnie dodany!",
-    invalidCredentials: "Nieprawidłowa nazwa użytkownika lub hasło.",
+    invalidCredentials: "Nieprawidłowy email lub hasło.", // Zmieniono komunikat
     loggedInSuccessfully: "Zalogowano pomyślnie!",
     loggedOut: "Wylogowano.",
-    productsNotPersistent: "Pamiętaj: Dodane produkty nie będą trwałe i znikną po odświeżeniu strony, ponieważ aplikacja działa tylko po stronie klienta.",
+    productsNotPersistent: "Pamiętaj: Dodane produkty nie będą trwałe i znikną po odświeżeniu strony, ponieważ aplikacja działa tylko po stronie klienta.", // Zachowano, ale nie jest już używane
     openNavigationMenu: "Otwórz menu nawigacyjne",
     madeWithDyad: "Stworzone z Dyad",
-    errorFetchingProducts: "Błąd podczas pobierania produktów.", // Nowe tłumaczenie
-    errorAddingProduct: "Błąd podczas dodawania produktu.", // Nowe tłumaczenie
-    notAuthenticatedToAddProduct: "Musisz być zalogowany, aby dodać produkt.", // Nowe tłumaczenie
-    errorLoggingOut: "Błąd podczas wylogowywania.", // Nowe tłumaczenie
-    loadingProducts: "Ładowanie produktów...", // Nowe tłumaczenie
+    errorFetchingProducts: "Błąd podczas pobierania produktów.",
+    errorAddingProduct: "Błąd podczas dodawania produktu.",
+    notAuthenticatedToAddProduct: "Musisz być zalogowany, aby dodać produkt.",
+    errorLoggingOut: "Błąd podczas wylogowywania.",
+    loadingProducts: "Ładowanie produktów...",
   },
   en: {
     home: "Home",
@@ -70,9 +70,9 @@ export const translations = {
     goToProduct: "Go to product",
     returnToCategory: "Return to category",
     loginToAdminPanel: "Login to Admin Panel",
-    username: "Username",
+    username: "Username", // Kept, but LoginPage uses email
     password: "Password",
-    useAdminPassword: "Use: vo1dd / vo1dd2026",
+    registerAdminAccount: "Register an admin account in Supabase to log in.", // Changed message
     adminPanel: "Admin Panel",
     addNewProduct: "Add New Product",
     productName: "Product Name",
@@ -83,17 +83,17 @@ export const translations = {
     addProduct: "Add Product",
     allFieldsRequired: "All fields are required!",
     productAddedSuccessfully: "Product added successfully!",
-    invalidCredentials: "Invalid username or password.",
+    invalidCredentials: "Invalid email or password.", // Changed message
     loggedInSuccessfully: "Logged in successfully!",
     loggedOut: "Logged out.",
-    productsNotPersistent: "Note: Added products will not be persistent and will disappear after refreshing the page, as the application runs only client-side.",
+    productsNotPersistent: "Note: Added products will not be persistent and will disappear after refreshing the page, as the application runs only client-side.", // Kept, but not used anymore
     openNavigationMenu: "Open navigation menu",
     madeWithDyad: "Made with Dyad",
-    errorFetchingProducts: "Error fetching products.", // New translation
-    errorAddingProduct: "Error adding product.", // New translation
-    notAuthenticatedToAddProduct: "You must be logged in to add a product.", // New translation
-    errorLoggingOut: "Error logging out.", // New translation
-    loadingProducts: "Loading products...", // New translation
+    errorFetchingProducts: "Error fetching products.",
+    errorAddingProduct: "Error adding product.",
+    notAuthenticatedToAddProduct: "You must be logged in to add a product.",
+    errorLoggingOut: "Error logging out.",
+    loadingProducts: "Loading products...",
   },
 };
 

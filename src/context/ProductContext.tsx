@@ -1,19 +1,19 @@
 "use client";
 
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { Product } from "@/data/products"; // Nadal importujemy typ Product
+import { Product } from "@/data/products";
 import { toast } from "sonner";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
-import { supabase } from '@/integrations/supabase/client'; // Importujemy klienta Supabase
+import { supabase } from '@/integrations/supabase/client';
 
 interface ProductContextType {
   products: Product[];
   addProduct: (product: Omit<Product, 'id'>) => Promise<void>;
   isAuthenticated: boolean;
-  login: (username: string, password: string) => boolean;
+  login: (email: string, password: string) => Promise<boolean>; // Zmieniono username na email i dodano Promise
   logout: () => void;
-  loadingProducts: boolean; // Dodajemy stan ładowania produktów
+  loadingProducts: boolean;
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
@@ -21,11 +21,10 @@ const ProductContext = createContext<ProductContextType | undefined>(undefined);
 export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [loadingProducts, setLoadingProducts] = useState<boolean>(true); // Domyślnie true, bo ładujemy produkty
+  const [loadingProducts, setLoadingProducts] = useState<boolean>(true);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  // Funkcja do pobierania produktów z Supabase
   const fetchProducts = async () => {
     setLoadingProducts(true);
     const { data, error } = await supabase
@@ -41,26 +40,24 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     setLoadingProducts(false);
   };
 
-  // Sprawdzanie sesji użytkownika i ładowanie produktów przy starcie
   useEffect(() => {
     const checkUserSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
         setIsAuthenticated(true);
       }
-      fetchProducts(); // Ładujemy produkty niezależnie od statusu logowania
+      fetchProducts();
     };
 
     checkUserSession();
 
-    // Nasłuchiwanie zmian stanu uwierzytelnienia
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN') {
         setIsAuthenticated(true);
-        fetchProducts(); // Odśwież produkty po zalogowaniu (jeśli są jakieś specyficzne dla użytkownika)
+        fetchProducts();
       } else if (event === 'SIGNED_OUT') {
         setIsAuthenticated(false);
-        fetchProducts(); // Odśwież produkty po wylogowaniu
+        fetchProducts();
       }
     });
 
@@ -79,7 +76,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
     const productToInsert = {
       ...newProduct,
-      user_id: user.id, // Przypisujemy produkt do zalogowanego użytkownika
+      user_id: user.id,
     };
 
     const { data, error } = await supabase
@@ -96,16 +93,22 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const login = (username: string, password: string) => {
-    // Na razie pozostawiamy proste logowanie, ale w przyszłości można zintegrować z Supabase Auth
-    if (username === "vo1dd" && password === "vo1dd2026") {
+  const login = async (email: string, password: string) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      console.error('Login error:', error.message);
+      toast.error(t("invalidCredentials"));
+      return false;
+    } else {
       setIsAuthenticated(true);
       toast.success(t("loggedInSuccessfully"));
       navigate('/admin');
       return true;
     }
-    toast.error(t("invalidCredentials"));
-    return false;
   };
 
   const logout = async () => {
