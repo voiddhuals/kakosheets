@@ -19,10 +19,10 @@ const Index = () => {
         </h1>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/category/shoes">
-            <GradientButton>{t("browseProducts")}</GradientButton> {/* Użycie tłumaczenia */}
+            <GradientButton size="lg">{t("browseProducts")}</GradientButton> {/* Powiększony przycisk */}
           </Link>
           <a href="https://ikako.vip/r/wojdd" target="_blank" rel="noopener noreferrer">
-            <GradientButton>{t("kakobuyCoupons")}</GradientButton> {/* Nowy przycisk z tłumaczeniem */}
+            <GradientButton size="lg">{t("kakobuyCoupons")}</GradientButton> {/* Powiększony przycisk */}
           </a>
         </div>
       </main>
