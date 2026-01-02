@@ -7,31 +7,19 @@ import ProductCard from "@/components/ProductCard";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { useProductContext } from "@/context/ProductContext";
 import { useTranslation } from '@/hooks/useTranslation';
-import { Skeleton } from '@/components/ui/skeleton'; // Importujemy komponent Skeleton
+import { Skeleton } from '@/components/ui/skeleton';
+import { getCategoryTranslationKey } from '@/utils/categories'; // Importujemy getCategoryTranslationKey
 
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
-  const { products, loadingProducts } = useProductContext(); // Pobieramy loadingProducts
+  const { products, loadingProducts } = useProductContext();
   const { t } = useTranslation();
 
-  const getCategoryNameFromSlug = (slug: string) => {
-    switch (slug) {
-      case "shoes": return t("shoes");
-      case "hoodies-sweaters": return t("hoodiesSweaters");
-      case "t-shirts": return t("tShirts");
-      case "jackets": return t("jackets");
-      case "pants-shorts": return t("pantsShorts");
-      case "headwear": return t("headwear");
-      case "accessories": return t("accessories");
-      case "other-stuff": return t("otherStuff");
-      default: return t("categoryNotFound");
-    }
-  };
-
-  const categoryDisplayName = categorySlug ? getCategoryNameFromSlug(categorySlug) : t("categoryNotFound");
+  // Używamy getCategoryTranslationKey do pobrania klucza tłumaczenia, a następnie t() do przetłumaczenia
+  const categoryDisplayName = categorySlug ? t(getCategoryTranslationKey(categorySlug)) : t("categoryNotFound");
 
   const filteredProducts = categorySlug
-    ? products.filter((product) => product.category.toLowerCase().replace(/\s|\//g, '-') === categorySlug)
+    ? products.filter((product) => product.category === categorySlug) // Teraz product.category to slug
     : [];
 
   return (

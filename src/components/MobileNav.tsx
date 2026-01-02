@@ -4,25 +4,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Menu, LogIn } from 'lucide-react'; // Pozostawiono tylko Menu i LogIn, jeśli są używane poza navLinks
+import { Menu, LogIn } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import LanguageToggle from './LanguageToggle';
 import { useTranslation } from '@/hooks/useTranslation';
+import { ALL_CATEGORIES } from '@/utils/categories'; // Importujemy ALL_CATEGORIES
 
 const MobileNav = () => {
   const { t } = useTranslation();
 
-  const navLinks = [
-    { name: t("home"), path: "/" },
-    { name: t("shoes"), path: "/category/shoes" },
-    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters" },
-    { name: t("tShirts"), path: "/category/t-shirts" },
-    { name: t("jackets"), path: "/category/jackets" },
-    { name: t("pantsShorts"), path: "/category/pants-shorts" },
-    { name: t("headwear"), path: "/category/headwear" },
-    { name: t("accessories"), path: "/category/accessories" },
-    { name: t("otherStuff"), path: "/category/other-stuff" },
-  ];
+  const navLinks = ALL_CATEGORIES.map(cat => ({
+    name: t(cat.translationKey),
+    path: `/category/${cat.slug}`
+  }));
 
   return (
     <Sheet>
@@ -40,6 +34,12 @@ const MobileNav = () => {
         </Link>
         <Separator className="mb-6 bg-border" />
         <nav className="flex flex-col gap-3">
+          <Link
+            to="/"
+            className="flex items-center gap-2 px-3 py-2 text-lg font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors duration-200"
+          >
+            {t("home")}
+          </Link>
           {navLinks.map((link) => (
             <Link
               key={link.name}

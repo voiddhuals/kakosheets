@@ -8,14 +8,15 @@ import { useProductContext } from "@/context/ProductContext";
 import { Button } from '@/components/ui/button';
 import GradientButton from '@/components/GradientButton';
 import { useTranslation } from '@/hooks/useTranslation';
-import { Skeleton } from '@/components/ui/skeleton'; // Importujemy komponent Skeleton
+import { Skeleton } from '@/components/ui/skeleton';
+import { getCategoryTranslationKey } from '@/utils/categories'; // Importujemy getCategoryTranslationKey
 
 const ProductDetailPage = () => {
   const { productId } = useParams<{ productId: string }>();
-  const { products, loadingProducts } = useProductContext(); // Pobieramy loadingProducts
+  const { products, loadingProducts } = useProductContext();
   const { t } = useTranslation();
 
-  const product = products.find(p => p.id === productId); // Zmieniono porównanie na string
+  const product = products.find(p => p.id === productId);
 
   if (loadingProducts) {
     return (
@@ -60,6 +61,9 @@ const ProductDetailPage = () => {
     );
   }
 
+  // Pobieramy przetłumaczoną nazwę kategorii na podstawie sluga
+  const translatedCategoryName = t(getCategoryTranslationKey(product.category));
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
@@ -75,7 +79,7 @@ const ProductDetailPage = () => {
           <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl font-bold text-foreground mb-4">{product.name}</h1>
             <p className="text-3xl font-semibold text-primary mb-6">{product.price}</p>
-            <p className="text-lg text-muted-foreground mb-4">{t("category")}: <span className="font-medium text-foreground">{product.category}</span></p>
+            <p className="text-lg text-muted-foreground mb-4">{t("category")}: <span className="font-medium text-foreground">{translatedCategoryName}</span></p>
             {product.link && (
               <div className="mt-6">
                 <a href={product.link} target="_blank" rel="noopener noreferrer">
@@ -84,7 +88,7 @@ const ProductDetailPage = () => {
               </div>
             )}
             <div className="mt-8">
-              <Link to={`/category/${product.category.toLowerCase().replace(/\s|\//g, '-')}`}>
+              <Link to={`/category/${product.category}`}> {/* Link używa sluga */}
                 <Button variant="outline" className="bg-transparent border-border text-foreground hover:bg-accent">{t("returnToCategory")}</Button>
               </Link>
             </div>

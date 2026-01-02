@@ -10,20 +10,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import Header from '@/components/Header';
 import { MadeWithDyad } from '@/components/made-with-dyad';
 import { useTranslation } from '@/hooks/useTranslation';
+import { ALL_CATEGORIES } from '@/utils/categories'; // Importujemy ALL_CATEGORIES
 
 const AdminPage = () => {
   const { addProduct, logout } = useProductContext();
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('/placeholder.svg');
-  const [category, setCategory] = useState('');
+  const [categorySlug, setCategorySlug] = useState(''); // Zmieniono na categorySlug
   const [productLink, setProductLink] = useState('');
   const { t } = useTranslation();
-
-  const categories = [
-    t("shoes"), t("hoodiesSweaters"), t("tShirts"), t("jackets"), t("pantsShorts"),
-    t("headwear"), t("accessories"), t("otherStuff")
-  ];
 
   const formatPriceForInput = (input: string): string => {
     let cleanInput = input.replace(/\$/g, '');
@@ -58,15 +54,16 @@ const AdminPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !price || !category) {
+    if (!name || !price || !categorySlug) { // Używamy categorySlug
       alert(t("allFieldsRequired"));
       return;
     }
-    addProduct({ name, price, image, category, link: productLink });
+    // Przekazujemy slug do addProduct, a nie przetłumaczoną nazwę
+    addProduct({ name, price, image, category: categorySlug, link: productLink });
     setName('');
     setPrice('');
     setImage('/placeholder.svg');
-    setCategory('');
+    setCategorySlug('');
     setProductLink('');
   };
 
@@ -132,13 +129,13 @@ const AdminPage = () => {
               </div>
               <div>
                 <Label htmlFor="category" className="text-muted-foreground">{t("category")}</Label>
-                <Select onValueChange={setCategory} value={category} required>
+                <Select onValueChange={setCategorySlug} value={categorySlug} required> {/* Używamy setCategorySlug */}
                   <SelectTrigger id="category" className="bg-input text-foreground border-border">
                     <SelectValue placeholder={t("selectCategory")} />
                   </SelectTrigger>
                   <SelectContent className="bg-card text-card-foreground border-border">
-                    {categories.map((cat) => (
-                      <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                    {ALL_CATEGORIES.map((cat) => ( // Mapujemy przez ALL_CATEGORIES
+                      <SelectItem key={cat.slug} value={cat.slug}>{t(cat.translationKey)}</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>

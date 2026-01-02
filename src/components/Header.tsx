@@ -6,22 +6,16 @@ import GradientButton from './GradientButton';
 import MobileNav from './MobileNav';
 import LanguageToggle from './LanguageToggle';
 import { useTranslation } from '@/hooks/useTranslation';
-import { LogIn } from 'lucide-react'; // Pozostawiono tylko LogIn, jeśli jest używane poza navLinks
+import { LogIn } from 'lucide-react';
+import { ALL_CATEGORIES } from '@/utils/categories'; // Importujemy ALL_CATEGORIES
 
 const Header = () => {
   const { t } = useTranslation();
 
-  const navLinks = [
-    { name: t("home"), path: "/" },
-    { name: t("shoes"), path: "/category/shoes" },
-    { name: t("hoodiesSweaters"), path: "/category/hoodies-sweaters" },
-    { name: t("tShirts"), path: "/category/t-shirts" },
-    { name: t("jackets"), path: "/category/jackets" },
-    { name: t("pantsShorts"), path: "/category/pants-shorts" },
-    { name: t("headwear"), path: "/category/headwear" },
-    { name: t("accessories"), path: "/category/accessories" },
-    { name: t("otherStuff"), path: "/category/other-stuff" },
-  ];
+  const navLinks = ALL_CATEGORIES.map(cat => ({
+    name: t(cat.translationKey),
+    path: `/category/${cat.slug}`
+  }));
 
   return (
     <header className="flex justify-between items-center p-4 bg-background text-foreground border-b border-border shadow-sm">
@@ -34,6 +28,12 @@ const Header = () => {
         </div>
       </div>
       <nav className="hidden md:flex flex-wrap justify-center gap-2 md:gap-4">
+        <Link
+          to="/"
+          className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-base px-3 py-1 transition-all duration-200 hover:scale-105"
+        >
+          {t("home")}
+        </Link>
         {navLinks.map((link) => (
           <Link
             key={link.name}
